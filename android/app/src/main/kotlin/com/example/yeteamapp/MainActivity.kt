@@ -1,4 +1,4 @@
-package com.example.yeteamapp
+package com.example.yeteamboxd
 
 import io.flutter.embedding.android.FlutterActivity
 
