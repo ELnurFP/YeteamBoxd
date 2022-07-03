@@ -1,6 +1,5 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:grock/grock.dart';
 import 'package:yeteamboxd/presentation/screens/login.dart';
 
@@ -35,25 +34,26 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: Constant.kMainColor,
-        body: Form(
-          key: _formKey,
-          child: SizedBox(
-            height: size.height,
-            child: Stack(
-              alignment: AlignmentDirectional.topCenter,
-              children: [
-                topBannerImage(context, size),
-                Positioned(
-                  child: SizedBox(
-                    height: size.height,
-                    child: buttompart(size),
-                  ),
+      backgroundColor: Constant.kMainColor,
+      body: Form(
+        key: _formKey,
+        child: SizedBox(
+          height: size.height,
+          child: Stack(
+            alignment: AlignmentDirectional.topCenter,
+            children: [
+              topBannerImage(context, size),
+              Positioned(
+                child: SizedBox(
+                  height: size.height,
+                  child: buttompart(size),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 
   SingleChildScrollView buttompart(Size size) {

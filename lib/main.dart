@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:grock/grock.dart';
 import 'package:yeteamboxd/constants/constant.dart';
-import 'package:yeteamboxd/presentation/screens/sign_up.dart';
+import 'package:yeteamboxd/presentation/screens/homepage.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const SignUp(),
+      home: const HomePage(),
     );
   }
 }
