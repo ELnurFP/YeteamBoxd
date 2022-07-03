@@ -1,23 +1,20 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:grock/grock.dart';
-import 'package:yeteamboxd/presentation/screens/login.dart';
+import 'package:yeteamboxd/presentation/screens/homepage.dart';
+import 'package:yeteamboxd/presentation/screens/login/sign_up.dart';
 
-import '../../constants/constant.dart';
-import 'homepage.dart';
+import '../../../constants/constant.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _LoginPageState extends State<LoginPage> {
   late TextEditingController usernameController;
-  late TextEditingController emailController;
   late TextEditingController passwordController;
-
   late bool passwordVisibility;
   final _formKey = GlobalKey<FormState>();
 
@@ -27,12 +24,11 @@ class _SignUpState extends State<SignUp> {
     passwordVisibility = false;
     usernameController = TextEditingController();
     passwordController = TextEditingController();
-    emailController = TextEditingController();
   }
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Constant.kMainColor,
       body: Form(
@@ -62,7 +58,7 @@ class _SignUpState extends State<SignUp> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            height: size.height * .3,
+            height: size.height * .357,
           ),
           Image.asset(
             "assets/images/Dots.png",
@@ -74,12 +70,12 @@ class _SignUpState extends State<SignUp> {
           ),
           SizedBox(height: size.height * .05),
           const Text(
-            "Create An Account",
+            "Login",
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 6),
           const Text(
-            "Create an account to continue",
+            "Please sign in to continue",
             style: TextStyle(fontSize: 13, fontWeight: FontWeight.w400),
           ),
           SizedBox(height: size.height * .034),
@@ -89,9 +85,7 @@ class _SignUpState extends State<SignUp> {
               controller: usernameController,
               validator: (value) {
                 if (value!.isEmpty) {
-                  return "Please enter username";
-                } else if (value.length < 4) {
-                  return "Username must be at least 4 characters";
+                  return "Please enter your username";
                 }
                 return null;
               },
@@ -110,55 +104,15 @@ class _SignUpState extends State<SignUp> {
           SizedBox(
             width: size.width * .64,
             child: TextFormField(
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return "Please enter your email";
-                } else if (EmailValidator.validate(value)) {
-                  return "Please enter a valid email";
-                }
-                return null;
-              },
-              controller: emailController,
-              decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.lock),
-                hintText: "Email",
-                labelStyle:
-                    const TextStyle(fontSize: 13, fontWeight: FontWeight.w400),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 16),
-          SizedBox(
-            width: size.width * .64,
-            child: TextFormField(
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return "Please enter your password";
-                } else if (value.length < 8) {
-                  return "Password must be at least 8 characters";
-                } else if (value.contains(" ")) {
-                  return "Password must not contain spaces";
-                }
-                return null;
-              },
               controller: passwordController,
               obscureText: !passwordVisibility,
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Please enter password";
+                }
+                return null;
+              },
               decoration: InputDecoration(
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    passwordVisibility
-                        ? Icons.visibility
-                        : Icons.visibility_off,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      passwordVisibility = !passwordVisibility;
-                    });
-                  },
-                ),
                 prefixIcon: const Icon(Icons.lock),
                 hintText: "Password",
                 labelStyle:
@@ -166,7 +120,32 @@ class _SignUpState extends State<SignUp> {
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
+                suffixIcon: InkWell(
+                  onTap: () => setState(
+                    () => passwordVisibility = !passwordVisibility,
+                  ),
+                  child: Icon(
+                    passwordVisibility
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined,
+                    color: const Color(0xFF757575),
+                  ),
+                ),
               ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(right: size.width * .18, top: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: const [
+                InkWell(
+                  child: Text(
+                    "Forgot password?",
+                    style: TextStyle(color: Constant.kSecondColor),
+                  ),
+                ),
+              ],
             ),
           ),
           SizedBox(
@@ -177,38 +156,32 @@ class _SignUpState extends State<SignUp> {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
 
-                Grock.toRemove(HomePage());
+                Grock.toRemove(const HomePage());
               }
             },
             child: const Text(
-              "Sign Up",
+              "Login",
             ),
           ),
           SizedBox(
             height: size.height * .022,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Already have an account? Go to the ",
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w400),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            const Text(
+              "Don't have an account?",
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w400),
+            ),
+            const SizedBox(width: 5),
+            InkWell(
+              onTap: () {
+                Grock.to(const SignUp());
+              },
+              child: const Text(
+                "Sign up",
+                style: TextStyle(color: Constant.kSecondColor),
               ),
-              const SizedBox(width: 5),
-              InkWell(
-                onTap: () {
-                  Grock.to(const LoginPage());
-                },
-                child: const Text(
-                  "Login Page",
-                  style: TextStyle(color: Constant.kSecondColor),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 10,
-          )
+            ),
+          ]),
         ],
       ),
     );

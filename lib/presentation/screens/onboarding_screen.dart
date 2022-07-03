@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grock/grock.dart';
 import 'package:yeteamboxd/constants/constant.dart';
-import 'package:yeteamboxd/presentation/screens/login.dart';
+import 'package:yeteamboxd/presentation/screens/login/login.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -50,7 +50,7 @@ class OnboardingScreen extends StatelessWidget {
                   SizedBox(height: size.height * .07),
                   TextButton(
                     onPressed: () {
-                      Grock.toRemove(LoginPage());
+                      Grock.toRemove(const LoginPage());
                     },
                     child: const Text(
                       "Get Started",
