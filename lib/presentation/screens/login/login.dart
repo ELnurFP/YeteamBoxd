@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:grock/grock.dart';
-import 'package:yeteamboxd/presentation/screens/homepage.dart';
+import 'package:yeteamboxd/presentation/screens/home/home.dart';
+
 import 'package:yeteamboxd/presentation/screens/login/sign_up.dart';
 
-import '../../../constants/constant.dart';
+import 'package:yeteamboxd/constants/constant.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -156,7 +157,7 @@ class _LoginPageState extends State<LoginPage> {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
 
-                Grock.toRemove(const HomePage());
+                Grock.toRemove(const HomeScreen());
               }
             },
             child: const Text(

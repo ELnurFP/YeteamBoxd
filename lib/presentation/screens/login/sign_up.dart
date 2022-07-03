@@ -1,11 +1,11 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:grock/grock.dart';
-import 'package:yeteamboxd/presentation/screens/homepage.dart';
+
+import 'package:yeteamboxd/presentation/screens/home/home.dart';
 import 'package:yeteamboxd/presentation/screens/login/login.dart';
 
-import '../../../constants/constant.dart';
-import '../homepage.dart';
+import 'package:yeteamboxd/constants/constant.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -178,7 +178,7 @@ class _SignUpState extends State<SignUp> {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
 
-                Grock.toRemove(const HomePage());
+                Grock.toRemove(const HomeScreen());
               }
             },
             child: const Text(

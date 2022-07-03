@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:grock/grock.dart';
 import 'package:yeteamboxd/constants/constant.dart';
-import 'package:yeteamboxd/presentation/screens/homepage.dart';
+import 'package:yeteamboxd/presentation/screens/home/home.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -25,8 +25,7 @@ class MyApp extends StatelessWidget {
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-            backgroundColor: Constant
-                .kSecondColor, // minimumSize: const Size(double.infinity, 48),
+            backgroundColor: Constant.kSecondColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
             ),
@@ -38,7 +37,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const HomePage(),
+      home: const HomeScreen(),
     );
   }
 }
