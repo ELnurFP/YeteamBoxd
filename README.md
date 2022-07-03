@@ -1,4 +1,4 @@
-# yeteamboxd
+# yeteamapp
 
 A new Flutter project.
 
