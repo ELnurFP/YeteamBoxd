@@ -46,9 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
           type: BottomNavigationBarType.fixed,
           showUnselectedLabels: false,
           selectedItemColor: Constant.kSecondColor,
-          unselectedItemColor: Constant.kSecondColor,
-
-          //  unselectedItemColor: Colors.white.withOpacity(.5),
+          unselectedItemColor: Colors.white.withOpacity(.5),
           items: [
             BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/icons/home.svg'),
