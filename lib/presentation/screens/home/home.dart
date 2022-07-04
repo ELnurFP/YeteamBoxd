@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:yeteamboxd/constants/constant.dart';
 import 'package:yeteamboxd/presentation/screens/drawer/drawer_screen.dart';
 import 'package:yeteamboxd/presentation/screens/home/homepage.dart';
@@ -45,22 +46,24 @@ class _HomeScreenState extends State<HomeScreen> {
           type: BottomNavigationBarType.fixed,
           showUnselectedLabels: false,
           selectedItemColor: Constant.kSecondColor,
-          unselectedItemColor: Colors.white.withOpacity(.5),
-          items: const [
+          unselectedItemColor: Constant.kSecondColor,
+
+          //  unselectedItemColor: Colors.white.withOpacity(.5),
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: SvgPicture.asset('assets/icons/home.svg'),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.reviews),
+              icon: SvgPicture.asset('assets/icons/compas.svg'),
               label: 'Reviews',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.notifications),
+              icon: SvgPicture.asset('assets/icons/notification.svg'),
               label: 'Notifications',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: SvgPicture.asset('assets/icons/user.svg'),
               label: 'Profile',
             ),
           ]),
