@@ -6,8 +6,8 @@ class PosterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 140 / 1.5,
-      height: 206 / 1.5,
+      width: 140 / 1.8,
+      height: 206 / 1.8,
       decoration: BoxDecoration(
         image:
             DecorationImage(fit: BoxFit.cover, image: NetworkImage(posterUrl)),

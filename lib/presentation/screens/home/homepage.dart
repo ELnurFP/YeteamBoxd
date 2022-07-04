@@ -98,7 +98,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           ),
           const SizedBox(height: 20),
           SizedBox(
-            height: 206 / 1.5,
+            height: 206 / 1.8,
             child: ListView.builder(
               itemCount: 10,
               scrollDirection: Axis.horizontal,
@@ -127,7 +127,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           ),
           const SizedBox(height: 20),
           SizedBox(
-            height: 240,
+            height: 220,
             child: ListView.builder(
               itemCount: 10,
               scrollDirection: Axis.horizontal,
@@ -220,7 +220,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           ),
           const SizedBox(height: 15),
           SizedBox(
-            height: 220,
+            height: 180,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
@@ -230,6 +230,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                         ? const EdgeInsets.only(left: 20, right: 10)
                         : const EdgeInsets.symmetric(horizontal: 10),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         PosterWidget(
                             posterUrl:
@@ -238,7 +239,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                         Row(
                           children: [
                             CircleAvatar(
-                              radius: 15,
+                              radius: 13,
                               backgroundImage: NetworkImage(
                                   'https://reqres.in/img/faces/8-image.jpg'),
                             ),
@@ -249,8 +250,8 @@ class _HomePageState extends ConsumerState<HomePage> {
                                 Text(
                                   'Alejandro',
                                   style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w500,
                                     color: Constant.kSecondColor,
                                   ),
                                 ),
@@ -260,14 +261,14 @@ class _HomePageState extends ConsumerState<HomePage> {
                                     Text(
                                       "10",
                                       style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w500,
                                         color: Constant.kSecondColor,
                                       ),
                                     ),
-                                    SizedBox(width: 5),
+                                    SizedBox(width: 3),
                                     Icon(Icons.star,
-                                        size: 15, color: Colors.yellow),
+                                        size: 10, color: Colors.yellow),
                                   ],
                                 ),
                               ],

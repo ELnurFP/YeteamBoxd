@@ -1,9 +1,10 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:grock/grock.dart';
+import 'package:yeteamboxd/presentation/screens/home/home.dart';
 
 import '../../constants/constant.dart';
-import 'home/homepage.dart';
+
 import 'login/login.dart';
 
 class SignUp extends StatefulWidget {
@@ -177,7 +178,7 @@ class _SignUpState extends State<SignUp> {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
 
-                Grock.toRemove(HomePage());
+                Grock.toRemove(const HomeScreen());
               }
             },
             child: const Text(
