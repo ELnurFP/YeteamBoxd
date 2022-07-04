@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yeteamboxd/constants/constant.dart';
 import 'package:yeteamboxd/presentation/screens/drawer/drawer_screen.dart';
 import 'package:yeteamboxd/presentation/screens/home/homepage.dart';
+import 'package:yeteamboxd/presentation/screens/profile/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     HomePage(),
     Center(child: Text('Reviews')),
     Center(child: Text('Notifications')),
-    Center(child: Text('Profile')),
+    ProfileScreen(),
   ];
 
   int _selectedIndex = 0;
