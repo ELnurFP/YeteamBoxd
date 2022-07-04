@@ -14,7 +14,6 @@ class HomePage extends ConsumerStatefulWidget {
 }
 
 class _HomePageState extends ConsumerState<HomePage> {
-  final GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -27,7 +26,7 @@ class _HomePageState extends ConsumerState<HomePage> {
               children: [
                 IconButton(
                   icon: SvgPicture.asset('assets/icons/drawer.svg'),
-                  onPressed: () => _key.currentState!.openDrawer(),
+                  onPressed: () => Scaffold.of(context).openDrawer(),
                 ),
                 IconButton(
                   icon: SvgPicture.asset(

@@ -52,11 +52,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.reviews),
-              label: 'Search',
+              label: 'Reviews',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.notifications),
-              label: 'Settings',
+              label: 'Notifications',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
