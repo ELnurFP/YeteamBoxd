@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ProfileScreen(),
   ];
 
-  int _selectedIndex = 3;
+  int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {

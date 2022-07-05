@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yeteamboxd/constants/constant.dart';
+import 'package:yeteamboxd/presentation/widgets/divider_widget.dart';
 import 'package:yeteamboxd/presentation/widgets/poster_widgets.dart';
 import 'package:yeteamboxd/presentation/widgets/profile_static_widget.dart';
 
@@ -161,11 +162,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ],
                   ),
                   SizedBox(height: size.height * 0.025),
-                  Container(
-                    color: Colors.white.withOpacity(.19),
-                    height: 1,
-                    width: size.width,
-                  ),
+                  const DividerWidget(),
                   SizedBox(height: size.height * 0.015),
                   const Text(
                     'Sadiq\'s Recent Activity',

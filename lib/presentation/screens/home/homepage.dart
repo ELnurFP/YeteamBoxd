@@ -1,9 +1,9 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:grock/grock.dart';
 import 'package:yeteamboxd/constants/constant.dart';
+import 'package:yeteamboxd/presentation/screens/movie/movie_screen.dart';
 import 'package:yeteamboxd/presentation/widgets/poster_widgets.dart';
 
 class HomePage extends ConsumerStatefulWidget {
@@ -78,7 +78,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           const Padding(
             padding: EdgeInsets.only(left: 20),
             child: Text(
-              'Review or track film you’ve watched...',
+              'Review or track film you\'ve watched...',
               style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
@@ -107,9 +107,12 @@ class _HomePageState extends ConsumerState<HomePage> {
                   padding: index == 0
                       ? const EdgeInsets.only(left: 20, right: 10)
                       : const EdgeInsets.symmetric(horizontal: 10),
-                  child: const PosterWidget(
-                      posterUrl:
-                          "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_Ratio0.6800_AL_.jpg"),
+                  child: InkWell(
+                    onTap: () => Grock.to(const MovieScreen()),
+                    child: const PosterWidget(
+                        posterUrl:
+                            "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_Ratio0.6800_AL_.jpg"),
+                  ),
                 );
               },
             ),
@@ -171,8 +174,8 @@ class _HomePageState extends ConsumerState<HomePage> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 10),
-                        Text(
+                        const SizedBox(height: 10),
+                        const Text(
                           'Life-Changing Movies',
                           style: TextStyle(
                             fontSize: 16,
@@ -180,7 +183,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                             color: Constant.kSecondColor,
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Row(
                           children: const [
                             CircleAvatar(
@@ -207,8 +210,8 @@ class _HomePageState extends ConsumerState<HomePage> {
             ),
           ),
           const SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
+          const Padding(
+            padding: EdgeInsets.only(left: 20),
             child: Text(
               'New From Friends',
               style: TextStyle(
@@ -232,22 +235,23 @@ class _HomePageState extends ConsumerState<HomePage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        PosterWidget(
-                            posterUrl:
-                                "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX128_CR0,3,128,176_AL_.jpg"),
-                        SizedBox(height: 5),
+                        const PosterWidget(
+                          posterUrl:
+                              "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX128_CR0,3,128,176_AL_.jpg",
+                        ),
+                        const SizedBox(height: 5),
                         Row(
                           children: [
-                            CircleAvatar(
+                            const CircleAvatar(
                               radius: 13,
                               backgroundImage: NetworkImage(
                                   'https://reqres.in/img/faces/8-image.jpg'),
                             ),
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
+                                const Text(
                                   'Alejandro',
                                   style: TextStyle(
                                     fontSize: 10,
@@ -255,7 +259,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                                     color: Constant.kSecondColor,
                                   ),
                                 ),
-                                SizedBox(height: 3),
+                                const SizedBox(height: 3),
                                 Row(
                                   children: const [
                                     Text(
