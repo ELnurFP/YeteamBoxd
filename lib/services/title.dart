@@ -1,11 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yeteamboxd/constants/apikeys.dart';
 import 'package:yeteamboxd/constants/get_random_element.dart';
 import 'package:yeteamboxd/models/populyar_movies.dart';
 import 'package:yeteamboxd/models/title.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-List<String> apikeys = ['k_ywahc056', 'k_xolopq78'];
+List<String> apikeys = ApiKeys().apikeys;
 
 class ApiService {
   Future<Title> getTitledata(id) async {
