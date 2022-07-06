@@ -7,13 +7,16 @@ part of 'title.dart';
 // **************************************************************************
 
 Title _$TitleFromJson(Map<String, dynamic> json) => Title(
-      id: json['id'] as String,
-      title: json['title'] as String,
-      image: json['image'] as String,
-      year: json['year'] as int,
-      plot: json['plot'] as String,
-      actorList: ActorList.fromJson(json['actorList'] as Map<String, dynamic>),
-      runtimeMins: json['runtimeMins'] as int,
+      id: json['id'] as String?,
+      title: json['title'] as String?,
+      image: json['image'] as String?,
+      year: json['year'] as String?,
+      plot: json['plot'] as String?,
+      actorList: (json['actorList'] as List<dynamic>?)
+          ?.map((e) => ActorList.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      runtimeMins: json['runtimeMins'] as String?,
+      directors: json['directors'] as String?,
     );
 
 Map<String, dynamic> _$TitleToJson(Title instance) => <String, dynamic>{
@@ -23,6 +26,7 @@ Map<String, dynamic> _$TitleToJson(Title instance) => <String, dynamic>{
       'year': instance.year,
       'runtimeMins': instance.runtimeMins,
       'plot': instance.plot,
+      'directors': instance.directors,
       'actorList': instance.actorList,
     };
 

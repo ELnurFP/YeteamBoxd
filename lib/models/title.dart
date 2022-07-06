@@ -4,20 +4,24 @@ part 'title.g.dart';
 
 @JsonSerializable()
 class Title {
-  String id;
-  String title;
-  String image;
-  int year, runtimeMins;
-  String plot;
-  ActorList actorList;
-  Title(
-      {required this.id,
-      required this.title,
-      required this.image,
-      required this.year,
-      required this.plot,
-      required this.actorList,
-      required this.runtimeMins});
+  String? id;
+  String? title;
+  String? image;
+  String? year;
+  String? runtimeMins;
+  String? plot;
+  String? directors;
+  List<ActorList>? actorList;
+  Title({
+    this.id,
+    this.title,
+    this.image,
+    this.year,
+    this.plot,
+    this.actorList,
+    this.runtimeMins,
+    this.directors,
+  });
 
   factory Title.fromJson(Map<String, dynamic> json) => _$TitleFromJson(json);
   Map<String, dynamic> toJson() => _$TitleToJson(this);
@@ -25,12 +29,8 @@ class Title {
 
 @JsonSerializable()
 class ActorList {
-  String id, name, image, asCharacter;
-  ActorList(
-      {required this.id,
-      required this.name,
-      required this.image,
-      required this.asCharacter});
+  String? id, name, image, asCharacter;
+  ActorList({this.id, this.name, this.image, this.asCharacter});
   factory ActorList.fromJson(Map<String, dynamic> json) =>
       _$ActorListFromJson(json);
   Map<String, dynamic> toJson() => _$ActorListToJson(this);
