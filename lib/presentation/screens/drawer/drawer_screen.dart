@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:grock/grock.dart';
 import 'package:yeteamboxd/constants/constant.dart';
+import 'package:yeteamboxd/presentation/screens/login/login.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
@@ -12,6 +14,8 @@ class MyDrawer extends StatefulWidget {
 }
 
 class _MyDrawerState extends State<MyDrawer> {
+  String check = 'home';
+
   bool pressAttention = false;
   @override
   Widget build(BuildContext context) {
@@ -26,11 +30,16 @@ class _MyDrawerState extends State<MyDrawer> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SvgPicture.asset(
-                    'assets/icons/drawer.svg',
-                    height: 20,
-                    width: 20,
-                    color: Colors.white,
+                  InkWell(
+                    onTap: () {
+                      Grock.navigationKey.currentState!.pop();
+                    },
+                    child: SvgPicture.asset(
+                      'assets/icons/drawer.svg',
+                      height: 17,
+                      width: 17,
+                      color: Colors.white,
+                    ),
                   ),
                   const SizedBox(height: 30),
                   Row(
@@ -116,11 +125,19 @@ class _MyDrawerState extends State<MyDrawer> {
               ListTile(
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                leading: const Icon(Icons.home, color: Constant.kSecondColor),
-                title: const Text('Home',
-                    style: TextStyle(color: Constant.kSecondColor)),
+                leading: Icon(
+                  Icons.home,
+                  color: check == 'home' ? Constant.kSecondColor : Colors.grey,
+                ),
+                title: Text('Home',
+                    style: TextStyle(
+                      color:
+                          check == 'home' ? Constant.kSecondColor : Colors.grey,
+                    )),
                 onTap: () {
-                  Navigator.pop(context);
+                  setState(() {
+                    check = 'home';
+                  });
                 },
               ),
               ListTile(
@@ -128,61 +145,90 @@ class _MyDrawerState extends State<MyDrawer> {
                     const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                 leading: Icon(Icons.movie_outlined,
                     color:
-                        pressAttention ? Constant.kSecondColor : Colors.grey),
+                        check == 'film' ? Constant.kSecondColor : Colors.grey),
                 title: Text('Films',
                     style: TextStyle(
-                        color: pressAttention
+                        color: check == 'film'
                             ? Constant.kSecondColor
                             : Colors.grey)),
                 onTap: () {
                   setState(() {
-                    pressAttention = !pressAttention;
+                    check = 'film';
                   });
-
-                  Navigator.pop(context);
                 },
               ),
               ListTile(
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                leading: const Icon(Icons.calendar_month,
-                    color: Constant.kSecondColor),
-                title: const Text('Diary',
-                    style: TextStyle(color: Constant.kSecondColor)),
+                leading: Icon(Icons.calendar_month,
+                    color:
+                        check == 'diary' ? Constant.kSecondColor : Colors.grey),
+                title: Text('Diary',
+                    style: TextStyle(
+                        color: check == 'diary'
+                            ? Constant.kSecondColor
+                            : Colors.grey)),
                 onTap: () {
-                  Navigator.pop(context);
+                  setState(() {
+                    check = 'diary';
+                  });
                 },
               ),
               ListTile(
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                leading: const Icon(Icons.book_rounded,
-                    color: Constant.kSecondColor),
-                title: const Text('Reviews',
-                    style: TextStyle(color: Constant.kSecondColor)),
+                leading: Icon(Icons.book_rounded,
+                    color: check == 'reviews'
+                        ? Constant.kSecondColor
+                        : Colors.grey),
+                title: Text(
+                  'Reviews',
+                  style: TextStyle(
+                      color: check == 'reviews'
+                          ? Constant.kSecondColor
+                          : Colors.grey),
+                ),
                 onTap: () {
-                  Navigator.pop(context);
+                  setState(() {
+                    check = 'reviews';
+                  });
                 },
               ),
               ListTile(
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                leading: const Icon(Icons.list_alt_sharp,
-                    color: Constant.kSecondColor),
-                title: const Text('Watchlist',
-                    style: TextStyle(color: Constant.kSecondColor)),
+                leading: Icon(Icons.list_alt_sharp,
+                    color: check == 'watchlist'
+                        ? Constant.kSecondColor
+                        : Colors.grey),
+                title: Text(
+                  'Watchlist',
+                  style: TextStyle(
+                      color: check == 'watchlist'
+                          ? Constant.kSecondColor
+                          : Colors.grey),
+                ),
                 onTap: () {
-                  Navigator.pop(context);
+                  setState(() {
+                    check = 'watchlist';
+                  });
                 },
               ),
               ListTile(
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                leading: const Icon(Icons.list, color: Constant.kSecondColor),
-                title: const Text('List',
-                    style: TextStyle(color: Constant.kSecondColor)),
+                leading: Icon(Icons.list,
+                    color:
+                        check == 'list' ? Constant.kSecondColor : Colors.grey),
+                title: Text('List',
+                    style: TextStyle(
+                        color: check == 'list'
+                            ? Constant.kSecondColor
+                            : Colors.grey)),
                 onTap: () {
-                  Navigator.pop(context);
+                  setState(() {
+                    check = 'list';
+                  });
                 },
               ),
               const SizedBox(height: 50),
@@ -194,7 +240,7 @@ class _MyDrawerState extends State<MyDrawer> {
                 title: const Text('Logout',
                     style: TextStyle(color: Constant.kSecondColor)),
                 onTap: () {
-                  Navigator.pop(context);
+                  Grock.toRemove(const LoginPage());
                 },
               ),
             ],

@@ -43,52 +43,168 @@ class _MovieScreenState extends ConsumerState<MovieScreen> {
                           SizedBox(
                             height: 10,
                           ),
-                          Text(data.title!),
+                          Text(
+                            data.title!,
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
                           SizedBox(
                             height: 10,
                           ),
-                          Text(data.year!, style: TextStyle()),
+                          Text(
+                            data.year!,
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(.5),
+                              fontSize: 15,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
                           DividerWidget(),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Column(
                                 children: [
-                                  Icon(Icons.whatshot),
-                                  Text('Whatchs'),
+//seen icon
+                                  Icon(
+                                    Icons.remove_red_eye_outlined,
+                                    color: Colors.white.withOpacity(.5),
+                                    size: 50,
+                                  ),
+
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    'Whatchs',
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      color: Colors.white.withOpacity(.5),
+                                    ),
+                                  ),
                                 ],
                               ),
                               Column(
                                 children: [
-                                  Icon(Icons.whatshot),
-                                  Text('Whatchs'),
+                                  //like icon
+                                  Icon(
+                                    Icons.favorite_outlined,
+                                    color: Colors.white.withOpacity(.5),
+                                    size: 50,
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    'Like',
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      color: Colors.white.withOpacity(.5),
+                                    ),
+                                  ),
                                 ],
                               ),
                               Column(
                                 children: [
-                                  Icon(Icons.whatshot),
-                                  Text('Whatchs'),
+                                  //whatchlist icon
+                                  Icon(
+                                    Icons.add_to_queue,
+                                    color: Colors.white.withOpacity(.5),
+                                    size: 50,
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    'Whatchs',
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      color: Colors.white.withOpacity(.5),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ],
                           ),
                           SizedBox(height: 15),
                           DividerWidget(),
-                          SizedBox(height: 25),
+                          //  Row(children: [],)
+                          SizedBox(height: 50),
                           DividerWidget(),
                           SizedBox(height: 15),
                           InkWell(
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Icon(Icons.add),
-                                  SizedBox(width: 10),
-                                  Text('Review or log')
-                                ],
-                              )),
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Icon(
+                                  Icons.add,
+                                  color: Colors.white.withOpacity(.5),
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  'Review or log',
+                                  style: TextStyle(
+                                    color: Colors.white.withOpacity(.5),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          InkWell(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Icon(
+                                  Icons.add_to_queue,
+                                  color: Colors.white.withOpacity(.5),
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  'Add to list',
+                                  style: TextStyle(
+                                    color: Colors.white.withOpacity(.5),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          InkWell(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Icon(
+                                  //isntagram icon
+                                  Icons.share,
+
+                                  color: Colors.white.withOpacity(.5),
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  'Share to Instagram Stories',
+                                  style: TextStyle(
+                                    color: Colors.white.withOpacity(.5),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     );
