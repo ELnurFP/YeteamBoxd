@@ -40,8 +40,14 @@ class _MovieScreenState extends ConsumerState<MovieScreen> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          SizedBox(
+                            height: 10,
+                          ),
                           Text(data.title!),
-                          Text(data.year!),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(data.year!, style: TextStyle()),
                           DividerWidget(),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
