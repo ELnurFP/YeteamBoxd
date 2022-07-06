@@ -187,7 +187,7 @@ class _MovieScreenState extends ConsumerState<MovieScreen> {
                                 height: 140,
                                 child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
-                                    itemCount: 6,
+                                    itemCount: data.actorList!.length,
                                     itemBuilder: (context, index) {
                                       return Container(
                                         padding: index == 0
