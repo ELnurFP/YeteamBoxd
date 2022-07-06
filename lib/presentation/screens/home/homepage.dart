@@ -107,7 +107,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                 SizedBox(
                   height: 206 / 1.8,
                   child: ListView.builder(
-                    itemCount: 10,
+                    itemCount: movies.items!.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return Padding(

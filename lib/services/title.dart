@@ -7,11 +7,10 @@ import 'dart:convert';
 
 List<String> apikeys = ['k_ywahc056', 'k_xolopq78'];
 
-String apikey = getRandomElement(apikeys);
-
 class ApiService {
   Future<Title> getTitledata(id) async {
     Title result;
+    String apikey = getRandomElement(apikeys);
     final response = await http.get(
       Uri.parse('https://imdb-api.com/en/API/Title/$apikey/$id'),
     );
@@ -27,6 +26,7 @@ class ApiService {
 
   Future<PopulyarMovies> getPopulyarMovies() async {
     PopulyarMovies result;
+    String apikey = getRandomElement(apikeys);
     final response = await http.get(
       Uri.parse('https://imdb-api.com/en/API/MostPopularMovies/$apikey'),
     );
